@@ -38,11 +38,11 @@ jobs:
           use_enforcement_rules: true      
 
       - name: Initialize Terraform
-        run: terraform init
+        run: terraform init ./iam_roles
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan ./iam_roles
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve
+        run: terraform apply ./iam_roles -auto-approve
