@@ -37,14 +37,14 @@ jobs:
           output_file_path: console
           use_enforcement_rules: true      
 
-      - name: Verify files
+      - name: Verify Files
         run: ls -al 
 
       - name: Initialize Terraform
-        run: terraform init ./iam_roles
+        run: terraform init /iam_roles
 
       - name: Terraform Plan
-        run: terraform plan ./iam_roles
+        run: terraform plan /iam_roles
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
