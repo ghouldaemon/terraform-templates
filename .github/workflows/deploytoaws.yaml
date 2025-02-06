@@ -42,13 +42,13 @@ jobs:
 
       - name: Initialize Terraform
         run: terraform init 
-        working-directory: ./iam_roles/main.tf
+        working-directory: iam_roles
 
       - name: Terraform Plan
         run: terraform plan 
-        working-directory: ./iam_roles/main.tf
+        working-directory: iam_roles
 
       - name: Terraform Apply
         #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve
-        working-directory: ./iam_roles/main.tf
+        working-directory: iam_roles
