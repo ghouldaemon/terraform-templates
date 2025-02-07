@@ -25,19 +25,7 @@ jobs:
           mkdir -p ~/.aws
           echo "[default]" > ~/.aws/credentials
           echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> ~/.aws/credentials
-          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> ~/.aws/credentials
-
-      - name: Code Application Security Scan 
-        id: prisma-cloud
-        uses: bridgecrewio/checkov-action@master
-        env:
-          PRISMA_API_URL: https://api0.prismacloud.io
-        with:
-          api-key: ${{ secrets.BC_API_KEY }}
-          directory: .
-          output_format: cli
-          output_file_path: console
-          use_enforcement_rules: true      
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> ~/.aws/credentials   
 
       - name: Verify Files
         run: ls -al 
