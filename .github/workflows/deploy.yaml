@@ -19,11 +19,6 @@ jobs:
 
       - name: Run yor action
         uses: bridgecrewio/yor-action@main
-        with:
-          version: 0.1.129
-          directory: webserver
-          tag: git_modifiers,git_commit,git_repository,yor_trace
-          output_format: json
 
       - name: Configure AWS credentials
         env:
