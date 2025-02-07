@@ -3,6 +3,7 @@ resource "aws_vpc" "terra_vpc" {
   cidr_block = "10.0.0.0/16"
   tags = {
     name = "my_vpc"
+    tool = "terraform"
   }
 }
 # Create an internet gateway
@@ -10,6 +11,7 @@ resource "aws_internet_gateway" "terra_IGW" {
   vpc_id = aws_vpc.terra_vpc.id
   tags = {
     name = "my_IGW"
+    tool = "terraform"
   }
 }
 # Create a custom route table
@@ -17,6 +19,7 @@ resource "aws_route_table" "terra_route_table" {
   vpc_id = aws_vpc.terra_vpc.id
   tags = {
     name = "my_route_table"
+    tool = "terraform"
   }
 }
 # create route
@@ -33,6 +36,7 @@ resource "aws_subnet" "terra_subnet" {
   
   tags = {
     name = "my_subnet"
+    tool = "terraform"
   }
 }
 # associate internet gateway to the route table by using subnet
@@ -95,6 +99,7 @@ resource "aws_security_group" "terra_SG" {
   ]
   tags = {
     name = "allow_web"
+    tool = "terraform"
   }
 }
 
@@ -126,5 +131,6 @@ resource "aws_instance" "terra_ec2" {
   
   tags = {
     name = "web_server"
+    tool = "terraform"
   }
 }
