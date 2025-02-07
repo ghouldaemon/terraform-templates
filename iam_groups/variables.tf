@@ -1,11 +1,11 @@
 variable "aws_region" {
   description = "AWS region to launch servers."
-  default     = "eu-west-1"
+  default     = "us-east-1"
 }
 
 variable "aws_master_account_id" {
   description = "AWS ID to root user"
-  default     = "3456789"
+  default     = "155712468242"
 }
 
 variable "aws_role_name" {
