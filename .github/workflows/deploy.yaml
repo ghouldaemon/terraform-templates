@@ -1,4 +1,4 @@
-name: Deploy Terraform to AWS
+name: Deploy Resources to AWS
 
 on:
   workflow_dispatch:
