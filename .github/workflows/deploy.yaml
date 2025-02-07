@@ -1,4 +1,4 @@
-name: Deploy Resources to AWS
+name: Deploy Resources In AWS
 
 on:
   workflow_dispatch:
