@@ -1,4 +1,4 @@
-name: Destroy Created Terraform Resources
+name: Destroy Resources In AWS
 
 on:
   workflow_dispatch:
