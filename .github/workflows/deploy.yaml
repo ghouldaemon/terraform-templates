@@ -34,7 +34,7 @@ jobs:
           PRISMA_API_URL: https://api0.prismacloud.io
         with:
           api-key: ${{ secrets.BC_API_KEY }}
-          directory: .
+          directory: ./webserver
           output_format: cli
           output_file_path: console
           use_enforcement_rules: true      
