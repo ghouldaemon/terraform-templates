@@ -1,6 +1,10 @@
 resource "aws_iam_instance_profile" "assume-role-s3" {
   name = "assume-role-s3"
   role = aws_iam_role.role-s3.id
+  tags = {
+    yor_name  = "assume-role-s3"
+    yor_trace = "7e24ceb1-8bfb-4153-a732-97cac2de849c"
+  }
 }
 
 resource "aws_iam_role" "role-s3" {
@@ -22,6 +26,10 @@ resource "aws_iam_role" "role-s3" {
 }
 EOF
 
+  tags = {
+    yor_name  = "role-s3"
+    yor_trace = "96d351bb-e75c-4b68-bd5b-e54ed1f715b2"
+  }
 }
 
 resource "aws_iam_role_policy" "role-s3-policy" {

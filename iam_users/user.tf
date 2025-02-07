@@ -1,24 +1,27 @@
 resource "aws_iam_user" "aws_user" {
-    name = "aws_user"
-    path = "/"
+  name = "aws_user"
+  path = "/"
 
-    tags = {}
+  tags = {
+    yor_name  = "aws_user"
+    yor_trace = "9d4808e6-e1f8-471b-bdc6-af8465d88993"
+  }
 }
 
 resource "aws_iam_user_group_membership" "aws_user_groups" {
-    user = "${aws_iam_user.aws_user.name}"
+  user = "${aws_iam_user.aws_user.name}"
 
-    groups = [
-        "Admin","Developers"
-    ]
+  groups = [
+    "Admin", "Developers"
+  ]
 }
 
 # If you want to give extras permission to user, otherwide group permissions is enough
 resource "aws_iam_user_policy" "aws_user_policy" {
-    name = "s3_access"
-    user = "${aws_iam_user.aws_user.name}"
+  name = "s3_access"
+  user = "${aws_iam_user.aws_user.name}"
 
-    policy = <<EOF
+  policy = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -42,6 +45,6 @@ EOF
 
 # Allow to user changes password
 resource "aws_iam_user_policy_attachment" "aws_user_IAMUserChangePassword" {
-    user      = "${aws_iam_user.aws_user.name}"
-    policy_arn = "arn:aws:iam::aws:policy/IAMUserChangePassword"
+  user       = "${aws_iam_user.aws_user.name}"
+  policy_arn = "arn:aws:iam::aws:policy/IAMUserChangePassword"
 }

@@ -21,6 +21,10 @@ resource "aws_kms_key" "kms-my-app" {
     # disable deletion of kms keys
     prevent_destroy = true
   }
+  tags = {
+    yor_name  = "kms-my-app"
+    yor_trace = "af33e604-a366-4d97-9e33-2d111b230d6b"
+  }
 }
 
 resource "aws_kms_alias" "kms-my-app" {
@@ -49,6 +53,10 @@ resource "aws_iam_user" "kms-my-app" {
   lifecycle {
     # disable deletion of iam users for kms
     prevent_destroy = true
+  }
+  tags = {
+    yor_name  = "kms-my-app"
+    yor_trace = "88c225cc-e2d2-4adf-8539-018039c88c24"
   }
 }
 

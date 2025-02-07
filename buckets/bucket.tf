@@ -9,6 +9,10 @@ resource "aws_s3_bucket" "state_terraform_s3" {
   lifecycle {
     prevent_destroy = true
   }
+  tags = {
+    yor_name  = "state_terraform_s3"
+    yor_trace = "5b9dfb6c-31fb-4563-aaef-f87281603f74"
+  }
 }
 
 resource "aws_s3_bucket_public_access_block" "state_terraform_s3" {
